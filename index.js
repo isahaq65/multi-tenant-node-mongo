@@ -1,11 +1,19 @@
-import ExpressConfig from "./server/express.config";
+
 import dotenv from "dotenv";
 
-const app=ExpressConfig();
+
+import middlewareConfig from "./server/middleware.config.js";
+import routesConfig from "./server/routes.config.js";
+import expressConfig from "./server/express.config.js";
+
+const app=expressConfig();
 dotenv.config()
+
+middlewareConfig(app)
+routesConfig(app)
 
 const PORT= process.env.PORT || 4000
 
 app.listen(PORT, async()=>{
-  console.log(`Server is running on http://localhost${PORT}`)
+  console.log(`Server is running on http://localhost:${PORT}`)
 })
