@@ -5,7 +5,6 @@ import { setCacheConnection } from "../utils/lruCacheManager";
 import { addATenantUserRepo } from "../repositories/tenantUser";
 import { addAUserRepo } from "../repositories/user";
 
-
 const addATenantService = async (dbConn, tenantData) => {
     const session = await dbConn.startSession();
     session.startTransaction();
